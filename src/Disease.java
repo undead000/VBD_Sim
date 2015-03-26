@@ -45,6 +45,7 @@ public class Disease {
 		this.strain = s;
 		this.state = state.NONE;
 		timeSinceInfection = 0;
+		
 	}
 	/**
 	 * 
