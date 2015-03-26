@@ -29,7 +29,7 @@ import java.util.Vector;
 public class Agent {
 	private static long NEXT_UID = 1;
 	/**
-	 * 
+	 * gets the next UID
 	 * @return a long integer representing the next UID (unique identifier) which
 	 * will uniquely identify each agent in the system
 	 */
