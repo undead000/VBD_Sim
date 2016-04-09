@@ -33,7 +33,7 @@ public class Mosquito extends Agent {
 	public Mosquito(int currRow, int currCol){
 		super(type, currRow, currCol);
 		//TODO: determine age at time of instantiation
-		age = Math.random() * lifespan_max;
+		age = World.randNum() * lifespan_max;
 	}
 	/*
 	 * @param deltaTime in seconds
@@ -52,14 +52,14 @@ public class Mosquito extends Agent {
 			die();
 		} else if(World.getLocation(getRow(), getColumn()).hasAny(Human.type)){
 			//possibly bite someone
-			if(Math.random() < bite_rate){
+			if(World.randNum() < bite_rate){
 				//choose a random human
 				Vector<Agent> humans = World.getLocation(getRow(), getColumn()).getAll(Human.type);
-				int random_idx = (int)(Math.random() * humans.size());
+				int random_idx = (int)(World.randNum() * humans.size());
 				if(humans.get(random_idx) instanceof Human){
 					Human victim = (Human)humans.get(random_idx);
 					victim.recieveBite(this);
-					if(Math.random() > encounter_survival_rate)
+					if(World.randNum() > encounter_survival_rate)
 					{
 						System.out.println("MOSQUITO "+getUID() + " was killed while feeding");
 						die();

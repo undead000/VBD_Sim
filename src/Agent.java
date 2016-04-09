@@ -221,7 +221,7 @@ public class Agent {
 		double randomSample;
 		double test = 0.5;
 		//handle direction
-		if(Math.random() < 0.5)
+		if(World.randNum() < 0.5)
 		{
 			displacement = 1;
 		}
@@ -229,7 +229,7 @@ public class Agent {
 		{
 			displacement = -1;
 		}
-		randomSample = Math.random();
+		randomSample = World.randNum();
 		while(randomSample < test)
 		{
 			count++;

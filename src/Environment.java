@@ -106,7 +106,7 @@ public class Environment {
 			{
 				Human victim = (Human)agent;
 				//TODO: calibrate rate here - what is a reasonable bite rate?
-				if(Math.random() < Mosquito.bite_rate)
+				if(World.randNum() < Mosquito.bite_rate)
 				{
 					victim.recieveBite(temp_mosquito);
 					if(temp_mosquito.isInfected())

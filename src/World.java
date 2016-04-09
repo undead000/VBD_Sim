@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Calendar;
+import java.util.Random;
 
 /*
  *	This file is part of DiseaseSim version 0.3 -  an agent based modeling research tool	*
@@ -31,6 +32,15 @@ public class World {
 	private static Environment[][] lattice;
 	double timeStepSeconds;
 	private static Calendar currTime = Calendar.getInstance();
+	public static Random num = new Random();
+	
+	/**
+	 * generates a random number, replaced Math.random()
+	 * can be seeded
+	 */
+	public static double randNum(){
+		return num.nextDouble();
+	}
 	
 	/**
 	 * 
@@ -85,7 +95,7 @@ public class World {
 	 */
 	public int samplePoisson(double rate)
 	{
-		double sample =  Math.random();
+		double sample =  World.randNum();
 		int k = 0;
 		while(sample < poissonProbability(rate,k))
 		{
@@ -155,8 +165,8 @@ public class World {
 	 */
 	public static Environment getRandomLocation()
 	{
-		int randRow = (int) (lattice.length * Math.random());
-		int randCol = (int) (lattice[randRow].length * Math.random());
+		int randRow = (int) (lattice.length * World.randNum());
+		int randCol = (int) (lattice[randRow].length * World.randNum());
 		return lattice[randRow][randCol];
 	}
 	/**
@@ -194,6 +204,19 @@ public class World {
 		return count;
 	}
 	
+	/**
+	 * count the number of recovered agents in the simulation
+	 * @return  the number of recovered agents
+	 */
+	public int countRecovered(){
+		int count=0;
+		for(int i = 0; i< lattice.length; i++){
+			for(int j = 0; j < lattice[i].length; j++){
+				count += lattice[i][j].countRecovered();	
+			}
+		}
+		return count;
+	}
 	/**
 	 * get the number of rows in the environment lattice
 	 * @return the number of rows in the environment lattice

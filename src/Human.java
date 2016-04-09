@@ -89,7 +89,7 @@ public class Human extends Agent {
 			
 		}else{
 			//half the time return home
-			if(Math.random() < 0.5)
+			if(World.randNum() < 0.5)
 			{
 				moveTo(homeRow, homeCol);
 			}else{

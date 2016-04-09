@@ -1,5 +1,10 @@
 import static org.junit.Assert.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,7 +19,8 @@ public class DiseaseTest {
 	 * @throws Exception
 	 */
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUpBeforeClass() throws Exception {  			
+		
 	}
 
 	/**
@@ -77,8 +83,5 @@ public class DiseaseTest {
 		assertEquals(3600.0,testDisease.getTimeSinceInfection(),0.000001);
 		testDisease.tick(60.0);
 		assertEquals(3660.0,testDisease.getTimeSinceInfection(),0.000001);
-
-		
 	}
-
 }
