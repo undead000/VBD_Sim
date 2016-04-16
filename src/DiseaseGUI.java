@@ -40,10 +40,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  *	email: mareklaskowski@gmail.com							*
  ****************************************************************************************/
 /**
- * 
  * a class that implements a GUI for simulating vector borne disease spread
  */
-
 public class DiseaseGUI extends JPanel implements ActionListener{
 	private static final long serialVersionUID = 8832885560545657000L;
 	
@@ -62,11 +60,8 @@ public class DiseaseGUI extends JPanel implements ActionListener{
 			//private Rectangle test = new Rectangle(50,50);
 			public void paint (Graphics g)
 			{
-			    //setBounds(20, 40, 300, 300);
-			    //Rectangle r = new Rectangle(getPreferredSize());
 				Rectangle r = new Rectangle(0,0,800,800);
 			    setBounds(r);
-				//setPreferredSize(getMaximumSize());
 				setBackground(Color.white);
 				theWorld.render(g, r);
 				
@@ -75,8 +70,6 @@ public class DiseaseGUI extends JPanel implements ActionListener{
 		canvas.setPreferredSize(getMaximumSize());
 		add(canvas, BorderLayout.SOUTH);
 		
-		
-
 	}
 
 	@Override
@@ -93,7 +86,8 @@ public class DiseaseGUI extends JPanel implements ActionListener{
 	}
 	
 	/**
-	 * your typical main function
+	 * main function which instantiates the world, introduces an infected individual and passes time
+	 * until no infections are left
 	 * @param args currently ignored
 	 */
 	public static void main(String[] args) {

@@ -20,7 +20,10 @@ import java.util.Vector;
  *	email: mareklaskowski@gmail.com							*
  ****************************************************************************************/
 
-
+/**
+ * a class representing a mosquito agent
+ * maintains the mosquito's survival statistics and governs its bite-disease logic
+ */
 public class Mosquito extends Agent {
 	
 	public static final double lifespan_max = 28.0*3600*24;
@@ -35,7 +38,8 @@ public class Mosquito extends Agent {
 		//TODO: determine age at time of instantiation
 		age = World.randNum() * lifespan_max;
 	}
-	/*
+	/**
+	 * simulate the agent's behavior for this time period
 	 * @param deltaTime in seconds
 	 */
 	@Override

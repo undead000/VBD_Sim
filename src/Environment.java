@@ -22,7 +22,6 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Vector;
 /**
- * 
  * a class that represents one location as part of a lattice
  * holds a list of Agents that are at this location
  * and manages lists of agents entering and leaving
@@ -37,7 +36,8 @@ public class Environment {
 	private int row;
 	private Mosquito temp_mosquito;
 	/**
-	 * basic constructor
+	 * basic constructor that instantiates mosquito densty and a mosquito at the 
+	 * input row/column
 	 * @param row the agent's initial row
 	 * @param col the agent's initial column
 	 * @param mosquitoDensity the mosquito density at this location
@@ -67,6 +67,7 @@ public class Environment {
 	}
 	/**
 	 * call when it's time for the agents entering this location to be processed
+	 * then clear the entrant list
 	 */
 	public void doEntrances()
 	{
@@ -79,11 +80,11 @@ public class Environment {
 	}
 	/**
 	 * call when it's time for agents leaving this location to be processed
+	 * then clear the exitant list
 	 */
 	public void doExits()
 	{
 		//purge exitantList
-		
 		for(Agent agent : exitantList)
 		{
 			inhabitants.remove(agent);
@@ -122,7 +123,6 @@ public class Environment {
 		
 	}
 	/**
-	 * 
 	 * @return this agent's row
 	 */
 	public int getRow()
@@ -131,7 +131,6 @@ public class Environment {
 	}
 
 	/**
-	 * 
 	 * @return this agent's column
 	 */
 	public int getColumn()
@@ -170,7 +169,6 @@ public class Environment {
 		return temp;
 	}
 	/**
-	 * 
 	 * @return the number of infected agents at this location
 	 */
 	public int countInfections()
@@ -186,7 +184,6 @@ public class Environment {
 		return count;
 	}
 	/**
-	 * 
 	 * @return count the number of susceptible agents at this location
 	 */
 	public int countSusceptible()
@@ -202,7 +199,6 @@ public class Environment {
 		return count;
 	}
 	/**
-	 * 
 	 * @return the number of recovered agents
 	 */
 	public int countRecovered()

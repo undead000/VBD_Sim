@@ -26,24 +26,29 @@ import java.util.Random;
 /**
  * a class representing the simulated world, contains the lattice environment
  * maintains the time between simulation frames, and the current time within the model
- *
  */
 public class World {
 	private static Environment[][] lattice;
 	double timeStepSeconds;
 	private static Calendar currTime = Calendar.getInstance();
-	public static Random num = new Random();
+	private static Random num = new Random();
 	
 	/**
-	 * generates a random number, replaced Math.random()
-	 * can be seeded
+	 * @return a random double between 0 and 1
 	 */
 	public static double randNum(){
 		return num.nextDouble();
 	}
 	
 	/**
-	 * 
+	 * Seeds the random number, for unit testing purposes.
+	 * @param x the number the seed will be set to
+	 */
+	public static void seedRand(int x){
+		num.setSeed(x);
+	}
+	
+	/**
 	 * @return the current model time
 	 */
 	public static Calendar getTime()
@@ -52,7 +57,7 @@ public class World {
 	}
 	
 	/**
-	 * I thought there was a math function to compute factorials. oh well. recursion, hooray
+	 * computes the factorial of input k
 	 * @param k this function will compute the factorial of k, as in k!
 	 * @return k! as long int
 	 */
@@ -64,8 +69,6 @@ public class World {
 			return factorial(k-1) * k;
 		}
 	}
-	
-	
 	
 	/**
 	 * computes the poisson probability
@@ -105,7 +108,7 @@ public class World {
 	}
 	
 	/**
-	 * a constructor for the world
+	 * a constructor for the world, instantiates a 2D environment array which extends to input rows/columns
 	 * @param rows how many rows the world has
 	 * @param cols how many columns the world has
 	 * @param timeStepSeconds the time between simulation steps
@@ -206,7 +209,7 @@ public class World {
 	
 	/**
 	 * count the number of recovered agents in the simulation
-	 * @return  the number of recovered agents
+	 * @return  the number of recovered agents throughout the entire simulation
 	 */
 	public int countRecovered(){
 		int count=0;

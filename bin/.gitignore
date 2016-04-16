@@ -1,1 +1,12 @@
-/WorldTest.class
+/Agent.class
+/Disease$State.class
+/Disease.class
+/DiseaseGUI$1.class
+/DiseaseGUI$2.class
+/DiseaseGUI$3.class
+/DiseaseGUI.class
+/DiseaseTest.class
+/Environment.class
+/Human.class
+/Mosquito.class
+/World.class

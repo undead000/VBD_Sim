@@ -20,11 +20,9 @@
  *	email: mareklaskowski@gmail.com							*
  ****************************************************************************************/
 /**
- * 
- * a class representing a disease
- * has several states
- * a string representing the strain
- * also maintains the time since infection.
+ * A class representing a disease.
+ * Has several states.
+ * Also maintains the time since infection.
  */
 public class Disease {
 	
@@ -45,18 +43,15 @@ public class Disease {
 		this.strain = s;
 		this.state = state.NONE;
 		timeSinceInfection = 0;
-	
-		
 	}
+	
 	/**
-	 * 
 	 * @return the string representing the strain
 	 */
 	public String getStrain(){
 		return strain;
 	}
 	/**
-	 * 
 	 * @return the current state of the disease
 	 */
 	public State getState(){
@@ -64,7 +59,7 @@ public class Disease {
 	}
 	
 	/**
-	 * a way to set the disease state
+	 * Set the disease state
 	 * @param newState the new state
 	 */
 	public void setState(State newState)
@@ -73,10 +68,8 @@ public class Disease {
 	}
 	
 	/**
-	 * 
 	 * @return time since infection occurred in seconds
 	 */
-	
 	public double getTimeSinceInfection()
 	{
 		return timeSinceInfection;
@@ -90,7 +83,4 @@ public class Disease {
 	{
 		timeSinceInfection += deltaTime;
 	}
-	
-	
-	
 }

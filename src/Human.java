@@ -21,8 +21,7 @@ import java.util.Calendar;
  *	email: mareklaskowski@gmail.com							*
  ****************************************************************************************/
 /**
- * 
- * a class reprsenting a human agent
+ * a class representing a human agent
  * maintains the agent's home row and column to which the agent returns
  * also stores the infectious period for a human
  */
@@ -47,7 +46,8 @@ public class Human extends Agent {
 	}
 
 	/**
-	 * get bitten by a mosquito
+	 * get bitten by a mosquito, bitee will receive a disease if the mosquito is infected,
+	 * mosquito will receive a disease if the bitee is infected
 	 * @param biter a reference to the biting mosquito
 	 */
 	public void recieveBite(Mosquito biter)

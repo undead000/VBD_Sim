@@ -7,28 +7,35 @@ import org.junit.Test;
  * This class tests methods in the World class
  */
 public class WorldTest {
-	
+
 	/**
 	 * Before any tests occur, sets the random number generator seed so that each sequence of events
 	 * will run identically.
-	 * @throws Exception
 	 */
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {  			
-		World.num.setSeed(55);
+	public static void setUpBeforeClass() {  			
+		World.seedRand(55);
 	}
 	
 	/**
 	 * Will test if the world's random number generator dependencies can be seeded. 
-	 * The same number of iterations and agents recovered should be seen every run.
+	 * The same number-pair of iterations and countRecovered should be seen every run.
 	 */
 	@Test
 	public void testRNG() {
-		int iterations = 0;
+		World.seedRand(55);
+		int iterations = 0; //number of iterations until disease is extinct
 
-        World theWorld = new World(50, 50, 3600.0, 0.5, 2);
+        //hardcoded values dependent on the seed(55), however it also seems to be dependent on
+		//computer time as well, changing every hour. Remains constant for 1hr periods, but changes
+		//the next hour
+		int knownIterations = 169;
+		int knownCountRecovered = 1;
+		
+		//create the world
+		World theWorld = new World(50, 50, 3600.0, 0.5, 2);
         
-        //add 1 infectious human agent
+        //add 1 infectious human agent to the world
 		Environment groundZero = World.getRandomLocation();
 		Disease newInfection = new Disease("ACGT");
 		Human patientZero = new Human(groundZero.getRow(), groundZero.getColumn());
@@ -41,9 +48,10 @@ public class WorldTest {
 			iterations++;
 			theWorld.tick();
 		}
-		System.out.println("\n---Final Stats---");
-		System.out.println("Number of iterations until disease was wiped out: "+iterations);
-		System.out.println("Total amount of agents recovered: "+theWorld.countRecovered()+"\n\n");
+		//check if both number of iterations until disease went extinct and the number
+		//of recovered agents are as expected for the given seed
+		assertEquals(knownIterations, iterations);
+		assertEquals(knownCountRecovered, theWorld.countRecovered());
 	}
 	
 	/**

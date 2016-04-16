@@ -45,7 +45,7 @@ public class Agent {
 	private long UID = getNextUID();
 	
 	/**
-	 * 
+	 * constructor which instantiates Agent type as well as its position in the world
 	 * @param type String representing what type of agent this is
 	 * @param currRow this agent's current position
 	 * @param currCol this agent's current position
@@ -58,7 +58,6 @@ public class Agent {
 	}
 
 	/**
-	 * 
 	 * @return the strain currently infecting the agent; returns empty string if 
 	 * this agent has never been infected
 	 */
@@ -84,7 +83,6 @@ public class Agent {
 		return recoveredStrain;
 	}
 	/**
-	 * 
 	 * @return true if this agent is currently infected
 	 */
 	public boolean isInfected()
@@ -96,7 +94,6 @@ public class Agent {
 		return false;
 	}
 	/**
-	 * 
 	 * @return true if this agent was previously infected, now recovered
 	 */
 	public boolean isRecovered()
@@ -104,7 +101,6 @@ public class Agent {
 		return (isInfected() == false && getStrain() != "");
 	}
 	/**
-	 * 
 	 * @return returns true if this agent has never been infected
 	 */
 	public boolean isSusceptible()
@@ -113,7 +109,6 @@ public class Agent {
 	}
 	
 	/**
-	 * 
 	 * @param newStrain infects the agent with the new strain
 	 */
 	public void recieveDisease(String newStrain)
@@ -167,7 +162,7 @@ public class Agent {
 	}
 	
 	/**
-	 * causes the agent to die
+	 * causes the agent to die (and clear it from the environment)
 	 */
 	protected void die()
 	{
@@ -175,7 +170,6 @@ public class Agent {
 		System.out.println("agent" + getUID() + " " + getType() + " died");
 	}
 	/**
-	 * 
 	 * @return a string representing the type of agent this is
 	 */
 	public String getType()
@@ -183,7 +177,6 @@ public class Agent {
 		return type;
 	}
 	/**
-	 * 
 	 * @return this agent's UID
 	 */
 	public long getUID()
@@ -192,7 +185,6 @@ public class Agent {
 	}
 	
 	/**
-	 * 
 	 * @return the agent's current row in the lattice environment
 	 */
 	public int getRow()
@@ -200,7 +192,6 @@ public class Agent {
 		return currRow;
 	}
 	/**
-	 * 
 	 * @return the agent's current column in the lattice environment
 	 */
 	public int getColumn()
@@ -237,5 +228,4 @@ public class Agent {
 		}
 		return count*displacement + startingPosition;
 	}
-
 }
